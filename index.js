@@ -97,3 +97,18 @@ bot.on('message', async (msg) => {
 });
 
 console.log("🤖 Telegram Wallet Balance Bot is running...");
+
+// --- DUMMY WEB SERVER FOR RENDER ---
+// Render's free tier requires deploying as a "Web Service".
+// Web Services must bind to a port, otherwise Render kills the app.
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Bot is alive and running!');
+});
+
+app.listen(port, () => {
+  console.log(`🌐 Dummy web server listening on port ${port}`);
+});
